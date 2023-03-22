@@ -1,4 +1,4 @@
-# financial
+# Login and Registration App (Flutter + Dart)
 
 A new Flutter project.
 
