@@ -16,7 +16,7 @@ The app has the following features:
 ##Getting started
 1. Clone the repository to your local machine
 
-`git clone https://github.com/yourusername/simple-login-registration-flutter-dart.git`
+`git clone https://github.com/DanielLittleFlower/simple-login-registration-flutter-dart.git`
 
 2. Open the project in your preferred code editor.
 3. Run flutter pub get to install the dependencies.
