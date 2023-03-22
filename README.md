@@ -44,6 +44,9 @@ The `RegisterScreen` allows new users to create an account. The screen consists 
 ## HomePage
 The `HomePage` is displayed after a successful login. The screen displays a welcome message to the user.
 
+## Laravel Login and Registration API
+For the server-side API that handles authentication and registration requests for this mobile application, please refer to the [Laravel Login and Registration API repository](https://github.com/DanielLittleFlower/login-registration-api)
+
 ### Contributing
 Contributions are welcome! If you would like to contribute to this project, please fork the repository and submit a pull request.
 
