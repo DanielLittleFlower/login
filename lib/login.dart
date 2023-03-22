@@ -15,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
 
   Future<void> login() async {
-    var url = "http://your-api-url.com/login.php";
+    var url = "http://127.0.0.1:8000/api/login";
     var response = await http.post(Uri.parse(url), body: {
       "email": emailController.text,
       "password": passwordController.text

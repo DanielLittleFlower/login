@@ -16,7 +16,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController passwordController = TextEditingController();
 
   Future<void> register() async {
-    var url = "http://your-api-url.com/register.php";
+    var url = "http://127.0.0.1:8000/api/register";
     var response = await http.post(Uri.parse(url), body: {
       "name": nameController.text,
       "email": emailController.text,
