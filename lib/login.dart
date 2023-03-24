@@ -5,6 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'registration.dart';
 import 'homepage.dart';
 
+//google login
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -46,6 +51,30 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             );
           });
+    }
+  }
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+      if (googleUser == null) return null;
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      return await _auth.signInWithCredential(credential);
+    } catch (e) {
+      print(e);
+      return null;
     }
   }
 
@@ -138,7 +167,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: TextDecoration.underline,
                       color: Colors.blue),
                 ),
-              )
+              ),
+              SizedBox(height: 20),
+              SignInButton(
+                Buttons.Google,
+                text: "Sign in with Google",
+                onPressed: () {
+                  signInWithGoogle().then((user) {
+                    if (user != null) {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(),
+                        ),
+                      );
+                    }
+                  });
+                },
+              ),
             ],
           ),
         ),
