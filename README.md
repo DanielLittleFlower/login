@@ -6,7 +6,7 @@ The app has the following features:
 
 1. A splash screen with the app logo displayed for 2 seconds before redirecting to the login screen.
 2. A login screen that allows users to enter their email and password. The app checks the user's input against the API and logs in the user   if the input is correct. If the input is incorrect, an error message is displayed.
-3. A registration screen that allows users to enter their name, email, and password. The app sends the user's data to the API for registration. If registration is successful, the user is logged in automatically. If registration fails, an error message is displayed.
+3. A two-step registration process that allows users to enter their name, email, password, and address. The app sends the user's data to the API for registration. If registration is successful, the user is logged in automatically. If registration fails, an error message is displayed.
 4. A home screen that displays a welcome message to the user after successful login.
 
 ## Prerequisites
@@ -39,7 +39,13 @@ The `SplashScreen` is the first screen that is displayed when the app is launche
 The `LoginScreen` allows users to enter their email and password to login to their account. The screen consists of two `TextField` widgets for email and password inputs, respectively, and a `RaisedButton` widget for submitting the form. If the user's input is incorrect, an error message is displayed using an 'AlertDialog'.
 
 ## RegisterScreen
-The `RegisterScreen` allows new users to create an account. The screen consists of three TextField widgets for name, email, and password inputs, respectively, and a `RaisedButton` widget for submitting the form. If registration is successful, the user is redirected to the `HomePage`. If registration fails, an error message is displayed using an `AlertDialog`.
+The `RegisterScreen` allows new users to create an account. The registration process is divided into two steps:
+
+Step 1
+Users enter their `name`, `email`, and `password` in the first step of the registration process. The screen consists of three `TextField` widgets for name, email, and password inputs, respectively, and a `RaisedButton` widget for submitting the form. If all the required fields are filled, the user is taken to the second step of the registration process.
+
+Step 2
+Users enter their address in the second step of the registration process. The screen consists of one `TextField` widget for address input and two buttons: a Back button that takes the user back to the first step of the registration process and a Register button that registers the user by sending their information to the backend server. If registration is successful, the user is logged in automatically. If registration fails, an error message is displayed using an AlertDialog.
 
 ## HomePage
 The `HomePage` is displayed after a successful login. The screen displays a welcome message to the user.
